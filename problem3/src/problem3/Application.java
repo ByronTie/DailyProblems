@@ -29,16 +29,34 @@ public class Application {
 		System.out.println("start");
 		
 		Node node = new Node("root", new Node("left", new Node("left.left")), new Node("right", null, new Node("right.right")));
-		//Node node = new Node("root");
+//		Node node = new Node("root");
 		
 		try {
 			NodeStreamer streamer = new NodeStreamer();
 			System.out.println("Serial output: " + streamer.serialize(node));
 			
-			
-			
 			Node deserializedNode = streamer.deserialize(streamer.serialize(node));
-			System.out.println(deserializedNode.left.left.val.equals("left.left"));
+			
+			if (!deserializedNode.left.left.val.equals("left.left")) {
+				throw new Exception("Not equal");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}	
+		
+		System.out.println("-------------------------------------");
+		
+		try {
+			NodeStreamer2 streamer2 = new NodeStreamer2();
+			System.out.println("Serial output: " + streamer2.serialize(node));
+			
+			Node deserializedNode2 = streamer2.deserialize(streamer2.serialize(node));
+			
+			if (!deserializedNode2.left.left.val.equals("left.left")) {
+				throw new Exception("Not equal");
+			}
+			
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
