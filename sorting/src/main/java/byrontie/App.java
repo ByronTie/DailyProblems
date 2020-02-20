@@ -19,10 +19,9 @@ public final class App {
 
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(21, 100);
         printArray(randomSample);
-        (new MergeSort<Integer>()).sort(randomSample);
-        printArray(randomSample);
+        printArray((new MergeSort<Integer>()).sort(randomSample));
     }
-
+    
     private static <T> void printArray(List<T> list) {
         for(T i: list) {
             System.out.print(i.toString() + ", ");

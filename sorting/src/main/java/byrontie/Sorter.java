@@ -3,5 +3,5 @@ package byrontie;
 import java.util.List;
 
 public interface Sorter<T extends Comparable<T>> {
-    void sort(List<T> listToSort);
+    List<T> sort(List<T> listToSort);
 }

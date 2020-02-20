@@ -6,15 +6,13 @@ import byrontie.Sorter;
 
 public class MergeSort<T extends Comparable<T>> implements Sorter<T> {
 
-    public void sort(List<T> listToSort) {
+    public List<T> sort(List<T> listToSort) {
 
         if(listToSort.isEmpty() || listToSort.size() == 1) {
-            return;
+            return listToSort;
         }
 
-        List<T> result = mergeSort(listToSort);
-        listToSort.clear();
-        listToSort.addAll(result);
+        return mergeSort(listToSort);
     }
 
     private List<T> mergeSort(List<T> listToSort) {

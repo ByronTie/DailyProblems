@@ -7,10 +7,10 @@ public class BubbleSort<T extends Comparable<T>> implements Sorter<T> {
 
     public BubbleSort() {}
 
-    public void sort(List<T> listToSort) {
+    public List<T> sort(List<T> listToSort) {
         
         if(listToSort.isEmpty() || listToSort.size() == 1) {
-            return;
+            return listToSort;
         }
 
         for(int i = 0; i < listToSort.size(); i++) {
@@ -20,6 +20,8 @@ public class BubbleSort<T extends Comparable<T>> implements Sorter<T> {
                 }
             }
         }
+
+        return listToSort;
     }
 
     private void swapEntries(List<T> list, int indexPrev, int indexCurrent) {
