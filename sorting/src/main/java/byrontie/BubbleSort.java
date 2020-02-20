@@ -1,44 +1,30 @@
 package byrontie;
 
+import java.util.List;
 import byrontie.Sorter;
 
-public class BubbleSort implements Sorter {
+public class BubbleSort<T extends Comparable<T>> implements Sorter<T> {
 
-    int[] sortedArray;
+    public BubbleSort() {}
 
-    public BubbleSort(int[] arrayToSort) {
-        setSortedArray(arrayToSort);
-    }
-
-    public int[] sort() {
+    public void sort(List<T> listToSort) {
         
-        int previous;
-
-        if(sortedArray.length < 2) {
-            return sortedArray;
+        if(listToSort.isEmpty() || listToSort.size() == 1) {
+            return;
         }
 
-        for(int i = 0; i < sortedArray.length; i++) {
-            previous = 0;
-
-            for(int j = 0; j < (sortedArray.length - i); j++) {
-                if(sortedArray[j] < previous) {
-                    swapEntries(j, j - 1);
+        for(int i = 0; i < listToSort.size(); i++) {
+            for(int j = 1; j < listToSort.size(); j++) {
+                if(listToSort.get(j).compareTo(listToSort.get(j - 1)) < 0) {
+                    swapEntries(listToSort, j - 1, j);
                 }
-                previous = sortedArray[j];
             }
         }
-
-        return sortedArray;
     }
 
-    private void setSortedArray(int[] sortedArray) {
-        this.sortedArray = (sortedArray == null) ? (new int[0]) : sortedArray;
-    }
-
-    private void swapEntries(int firstIndex, int secondIndex) {
-        int temp = sortedArray[firstIndex];
-        sortedArray[firstIndex] = sortedArray[secondIndex];
-        sortedArray[secondIndex] = temp;
+    private void swapEntries(List<T> list, int indexPrev, int indexCurrent) {
+        T temp = list.get(indexCurrent);
+        list.set(indexCurrent, list.get(indexPrev));
+        list.set(indexPrev, temp);
     }
 }

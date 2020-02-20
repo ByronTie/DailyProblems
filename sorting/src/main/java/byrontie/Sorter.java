@@ -1,5 +1,7 @@
 package byrontie;
 
-public interface Sorter {
-    public int[] sort ();
+import java.util.List;
+
+public interface Sorter<T extends Comparable<T>> {
+    void sort(List<T> listToSort);
 }
