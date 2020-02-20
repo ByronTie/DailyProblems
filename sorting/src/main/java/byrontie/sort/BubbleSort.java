@@ -1,7 +1,6 @@
-package byrontie;
+package byrontie.sort;
 
 import java.util.List;
-import byrontie.Sorter;
 
 // 1 hour development
 public class BubbleSort<T extends Comparable<T>> implements Sorter<T> {

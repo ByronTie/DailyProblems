@@ -1,30 +1,36 @@
-package byrontie;
+package byrontie.sort;
 
 import org.junit.Test;
 import java.util.List;
 import byrontie.RandomSampleGenerator;
+import byrontie.TestBase;
 
 import static org.junit.Assert.*;
 
-public class MergeSortTest extends TestBase {
+/**
+ * Unit test for simple App.
+ */
+public class BubbleSortTest extends TestBase {
 
     @Test
-    public void testMergeSortNoEntry() {
+    public void testBubbleSortNoEntry() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(0, 100);
-        assertTrue((new MergeSort<Integer>()).sort(randomSample).isEmpty());
+        assertTrue((new BubbleSort<Integer>()).sort(randomSample).isEmpty());
     }
 
     @Test
-    public void testMergeSortOneEntry() {
+    public void testBubbleSortOneEntry() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(1, 100);
-        List<Integer> sortedSample = (new MergeSort<Integer>()).sort(randomSample);
+        List<Integer> sortedSample = (new BubbleSort<Integer>()).sort(randomSample);
         assertTrue(isSorted(sortedSample));
     }
 
     @Test
-    public void testMergeSortManyEntries() {
+    public void testBubbleSortManyEntries() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(20, 100);
-        List<Integer> sortedSample = (new MergeSort<Integer>()).sort(randomSample);
+        List<Integer> sortedSample = (new BubbleSort<Integer>()).sort(randomSample);
         assertTrue(isSorted(sortedSample));
     }
+
+    
 }
