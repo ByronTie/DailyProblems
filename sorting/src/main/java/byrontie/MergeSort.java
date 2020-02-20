@@ -22,44 +22,44 @@ public class MergeSort<T extends Comparable<T>> implements Sorter<T> {
         int midPoint = listToSort.size()/2;
         List<T> left = listToSort.subList(0, midPoint);
         List<T> right = listToSort.subList(midPoint, listToSort.size());
-        List<T> leftResult = new ArrayList<>(left.size());
-        List<T> rightResult = new ArrayList<>(right.size());
 
         if(left.size() > 1) {
-            leftResult.addAll(mergeSort(left));
-        } else {
-            leftResult.addAll(left);
+            left = mergeSort(left);
         }
 
         if(right.size() > 1) {
-            rightResult.addAll(mergeSort(right));
-        } else {
-            rightResult.addAll(right);
+            right = mergeSort(right);
         }
 
-        List<T> result = new ArrayList<>(listToSort.size());
-        while(!leftResult.isEmpty() && !rightResult.isEmpty()) {
-            T leftEntry = leftResult.get(0);
-            T rightEntry = rightResult.get(0);
+        return merge(left, right);
+    }
+
+    private List<T> merge(List<T> left, List<T> right) {
+        List<T> result = new ArrayList<>();
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        while(leftIndex < left.size() && rightIndex < right.size()) {
+            T leftEntry = left.get(leftIndex);
+            T rightEntry = right.get(rightIndex);
 
             if(leftEntry.compareTo(rightEntry) < 0) {
                 result.add(leftEntry);
-                leftResult.remove(0);   
+                leftIndex++;
             } else {
                 result.add(rightEntry);
-                rightResult.remove(0);  
+                rightIndex++;
             }
         }
 
-        if(leftResult.isEmpty()) {
-            result.addAll(rightResult);
+        if(leftIndex == left.size()) {
+            result.addAll(right.subList(rightIndex, right.size()));
         }
 
-        if(rightResult.isEmpty()) {
-            result.addAll(leftResult);
+        if(rightIndex == right.size()) {
+            result.addAll(left.subList(leftIndex, left.size()));
         }
 
         return result;
     }
-
 }
