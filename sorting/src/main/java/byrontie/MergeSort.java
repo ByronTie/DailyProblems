@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import byrontie.Sorter;
 
+// 2 hour development
 public class MergeSort<T extends Comparable<T>> implements Sorter<T> {
 
     public List<T> sort(List<T> listToSort) {
