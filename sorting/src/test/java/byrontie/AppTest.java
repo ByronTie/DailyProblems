@@ -12,26 +12,45 @@ import static org.junit.Assert.*;
 public class AppTest {
 
     @Test
-    public void testBubbleNoEntry() {
+    public void testBubbleSortNoEntry() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(0, 100);
-        printArray(randomSample);
         (new BubbleSort<Integer>()).sort(randomSample);
-        assertTrue(isSorted(randomSample));
+        assertEquals(randomSample.size(), 0);
     }
 
     @Test
-    public void testBubbleOneEntry() {
+    public void testBubbleSortOneEntry() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(1, 100);
-        printArray(randomSample);
         (new BubbleSort<Integer>()).sort(randomSample);
         assertTrue(isSorted(randomSample));
     }
 
     @Test
-    public void testBubbleManyEntries() {
+    public void testBubbleSortManyEntries() {
         List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(20, 100);
-        printArray(randomSample);
         (new BubbleSort<Integer>()).sort(randomSample);
+        printArray(randomSample);
+        assertTrue(isSorted(randomSample));
+    }
+
+    @Test
+    public void testMergeSortNoEntry() {
+        List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(0, 100);        
+        (new MergeSort<Integer>()).sort(randomSample);
+        assertEquals(randomSample.size(), 0);
+    }
+
+    @Test
+    public void testMergeSortOneEntry() {
+        List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(1, 100);
+        (new MergeSort<Integer>()).sort(randomSample);
+        assertTrue(isSorted(randomSample));
+    }
+
+    @Test
+    public void testMergeSortManyEntries() {
+        List<Integer> randomSample = RandomSampleGenerator.getRandomNumberAsList(20, 100);
+        (new MergeSort<Integer>()).sort(randomSample);
         printArray(randomSample);
         assertTrue(isSorted(randomSample));
     }
