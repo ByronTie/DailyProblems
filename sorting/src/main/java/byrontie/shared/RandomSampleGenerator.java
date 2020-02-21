@@ -1,4 +1,4 @@
-package byrontie;
+package byrontie.shared;
 
 import java.util.List;
 import java.util.ArrayList;

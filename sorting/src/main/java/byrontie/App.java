@@ -1,6 +1,6 @@
 package byrontie;
 
-import byrontie.RandomSampleGenerator;
+import byrontie.shared.RandomSampleGenerator;
 import byrontie.sort.MergeSort;
 import java.util.List;
 

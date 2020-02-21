@@ -2,7 +2,7 @@ package byrontie.sort;
 
 import org.junit.Test;
 import java.util.List;
-import byrontie.RandomSampleGenerator;
+import byrontie.shared.RandomSampleGenerator;
 import byrontie.TestBase;
 
 import static org.junit.Assert.*;
