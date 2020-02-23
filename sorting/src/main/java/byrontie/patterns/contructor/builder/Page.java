@@ -1,4 +1,4 @@
-package byrontie.patterns.contructor;
+package byrontie.patterns.contructor.builder;
 
 import java.util.Collections;
 import java.util.HashMap;

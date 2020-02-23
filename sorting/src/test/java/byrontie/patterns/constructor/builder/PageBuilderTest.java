@@ -1,4 +1,4 @@
-package byrontie.patterns.constructor;
+package byrontie.patterns.constructor.builder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,8 +6,8 @@ import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 import byrontie.TestBase;
-import byrontie.patterns.contructor.Page;
-import byrontie.patterns.contructor.Page.PageBuilder;
+import byrontie.patterns.contructor.builder.Page;
+import byrontie.patterns.contructor.builder.Page.PageBuilder;
 
 public class PageBuilderTest extends TestBase {
 
